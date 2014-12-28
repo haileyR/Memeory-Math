@@ -1,0 +1,36 @@
+.wrapper {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+h1{
+  margin: 20px;
+  font-family: "Coming Soon", "Comic Sans MS", "Comic Sans MS", sans-serif;
+  font-size: 3em;
+  color: #39ab8c;
+}
+
+h2{
+  margin: 20px;
+  font-family: "Coming Soon", "Comic Sans MS", "Comic Sans MS", sans-serif;
+  font-size: 1.3em;
+  color: #1c6551;
+}
+
+
+table, input{
+  margin: 20px;
+}
+table, th, td {
+   border: 3px solid #338acc;
+}
+
+
+td{
+  height: 70px;
+  width: 70px;
+  font-family: "Coming Soon", "Comic Sans MS", "Comic Sans MS", sans-serif;
+  font-size: 3em;
+  color: #1e5783;
+}
