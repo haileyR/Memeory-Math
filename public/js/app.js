@@ -11,6 +11,11 @@ $(document).ready(function() {
 
   var clickCount = 0;
   var clickedTds = [];
+  $('#hint').on('click', function(){
+    console.log('hint works');
+    $(".insideTd").show();
+    setTimeout(function(){ $(".insideTd").fadeOut(); }, 2000);
+  });
   $('#board').on('click', 'td', function(event){
     // debugger
     $(event.target.firstChild).show();
@@ -20,7 +25,7 @@ $(document).ready(function() {
       clickedTds.push(this.id);
       if(clickCount===1 || clickCount===3){
         if(typeof game.board_seq[this.id] === 'string'){
-          debugger
+          // debugger
           setTimeout(function(){ $('.insideTd').fadeOut(); }, 100);
           alert('Wrong!');
           $('#question').text(game.question()+" = ");
@@ -50,7 +55,7 @@ $(document).ready(function() {
         };
       }else if(clickCount===2){
         if(typeof game.board_seq[this.id] === 'number'){
-          setTimeout(function(){ $("span").fadeOut(); }, 100);
+          setTimeout(function(){ $('.insideTd').fadeOut(); }, 100);
           alert('Wrong!');
           $('#question').text(game.question()+" = ");
           clickCount=0;
