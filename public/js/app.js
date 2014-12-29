@@ -27,27 +27,23 @@ $(document).ready(function() {
         if(typeof game.board_seq[this.id] === 'string'){
           // debugger
           setTimeout(function(){ $('.insideTd').fadeOut(); }, 100);
-          alert('Wrong!');
+          alert('Wrong! Click Number, Operation, and Number.');
+          $('#score').text('Score: '+game.score+'/'+game.outOf);
           $('#question').text(game.question()+" = ");
           clickCount=0;
           clickedTds = [];
         }else if(clickCount===3){
-          console.log(game.question()===game.result(clickedTds));
-          // debugger
-          if(parseInt($('#question')[0].textContent)===game.result(clickedTds)){
-            console.log('true',game.question()===game.result(clickedTds));
-            console.log(game.result(clickedTds));
+          if(game.result(parseInt($('#question')[0].textContent), clickedTds)){
             setTimeout(function(){ $('.insideTd').fadeOut(); }, 100);
             alert('Good!');
+            $('#score').text('Score: '+game.score+'/'+game.outOf);
             $('#question').text(game.question()+" = ");
             clickCount=0;
             clickedTds = [];
           }else{
-            console.log('false');
-            console.log('q',game.question());
-            console.log('r',game.result(clickedTds));
             setTimeout(function(){ $('.insideTd').fadeOut(); }, 100);
-            alert('Wrong!');
+            alert('Wrong!........');
+            $('#score').text('Score: '+game.score+'/'+game.outOf);
             $('#question').text(game.question()+" = ");
             clickCount=0;
             clickedTds = [];
@@ -56,7 +52,8 @@ $(document).ready(function() {
       }else if(clickCount===2){
         if(typeof game.board_seq[this.id] === 'number'){
           setTimeout(function(){ $('.insideTd').fadeOut(); }, 100);
-          alert('Wrong!');
+          alert('Wrong! Click Number, Operation, and Number.');
+          $('#score').text('Score: '+game.score+'/'+game.outOf);
           $('#question').text(game.question()+" = ");
           clickCount=0;
           clickedTds = [];

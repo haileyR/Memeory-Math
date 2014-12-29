@@ -1,5 +1,7 @@
 function Game(){
   this.board_seq = this.createBoardSeq();
+  this.score = 0;
+  this.outOf = 0;
 };
 
 
@@ -34,11 +36,12 @@ Game.prototype.question = function(){
 
         break;
   };
+  this.outOf += 1;
   return number;
 };
 
 
-Game.prototype.result = function(array){
+Game.prototype.result = function(question, array){
   var self = this;
   switch(self.board_seq[array[1]]) {
     case '+':
@@ -55,7 +58,7 @@ Game.prototype.result = function(array){
 
         break;
   };
-  console.log(number);
-  return number;
+  if(question === number){this.score +=1;};
+  return question === number;
 
 };

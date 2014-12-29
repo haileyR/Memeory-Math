@@ -1,7 +1,8 @@
-.wrapper {
+.container {
   width: 50%;
   height: 100%;
   position: relative;
+  text-align: center;
 }
 
 h1{
@@ -18,12 +19,16 @@ h2{
   color: #1c6551;
 }
 
+#board{
+  margin-left: 37.5%;
+}
 
 table, input{
   margin: 20px;
 }
 table, th, td {
-   border: 3px solid #338acc;
+
+  border: 3px solid #338acc;
 }
 
 
