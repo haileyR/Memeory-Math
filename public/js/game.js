@@ -4,7 +4,6 @@ function Game(){
   this.outOf = 0;
 };
 
-
 Game.prototype.createBoardSeq = function(){
   array = Array.apply(null, { length: 12 }).map(function(element, index) { return index+1; });
   array = array.concat(['+', '-', '*', "/"]);
@@ -33,7 +32,6 @@ Game.prototype.question = function(){
         break;
     case '/':
         number = Math.round(n1 / n2);
-
         break;
   };
   this.outOf += 1;
@@ -55,7 +53,6 @@ Game.prototype.result = function(question, array){
         break;
     case '/':
         number = Math.round(self.board_seq[array[0]] / self.board_seq[array[2]]);
-
         break;
   };
   if(question === number){this.score +=1;};

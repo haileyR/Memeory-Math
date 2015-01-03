@@ -12,7 +12,13 @@ $(document).ready(function() {
 
   $('#hint').on('click', function(){
     $(".insideTd").show();
-    setTimeout(function(){ $(".insideTd").fadeOut(); }, 2000);
+    game.score -= 2;
+    $('#score').text('Score: '+game.score+'/'+game.outOf);
+    $("#board").bind('click', function(){ return false; });
+    setTimeout(function(){
+      $(".insideTd").fadeOut();
+      $("#board").unbind('click');
+    }, 2000);
   });
 
   $('#board').on('click', 'td', function(event){
