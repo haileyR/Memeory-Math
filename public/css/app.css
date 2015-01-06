@@ -4,18 +4,31 @@
   position: relative;
   text-align: center;
 }
+.userInfoCont{
+  width: 30%;
+  position: relative;
+  float: right;
+}
+
+#logout{
+  /*display: none;*/
+}
+
+header{
+  background-color: white;
+  margin: 10px;
+  height: 110px;
+  border-bottom: 2px solid #B0C4DE;
+}
 
 h1{
-  margin: 20px;
-  font-family: "Coming Soon", "Comic Sans MS", "Comic Sans MS", sans-serif;
-  font-size: 3em;
   color: #39ab8c;
+  position: relative;
+  float: left;
 }
 
 h2{
   margin: 20px;
-  font-family: "Coming Soon", "Comic Sans MS", "Comic Sans MS", sans-serif;
-  font-size: 1.3em;
   color: #1c6551;
 }
 

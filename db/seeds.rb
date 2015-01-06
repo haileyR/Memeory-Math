@@ -1,0 +1,1 @@
+User.create(name: 'hailey', password: 'a', top_score: 10)

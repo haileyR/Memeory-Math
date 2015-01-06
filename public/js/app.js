@@ -10,6 +10,30 @@ $(document).ready(function() {
   clickCount = 0;
   clickedTds = [];
 
+
+  $('header').on('submit', '#login', logInOutAjaxCall);
+  $('header').on('click', '#logout', logInOutAjaxCall);
+  $('header').on('click', '#registerNow', logInOutAjaxCall);
+  $('header').on('submit', '#register', logInOutAjaxCall);
+
+  function logInOutAjaxCall(event){
+    event.preventDefault();
+    $target = $(event.target);
+    console.log($target);
+    console.log('serialize',$target.serialize());
+    $.ajax({
+      type: $target.attr('method'),
+      url: $target.attr('action'),
+      data: $target.serialize()
+    }).done(function(response){
+      console.log(response);
+      $('.userInfoCont').replaceWith(response);
+    });
+  };
+
+
+
+
   $('#hint').on('click', function(){
     $(".insideTd").show();
     game.score -= 2;

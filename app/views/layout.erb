@@ -27,6 +27,15 @@
 
   <div class="wrapper">
     <body>
+      <header>
+        <h1>The Genius: Memory Math</h1>
+          <% if current_user %>
+            <%= erb :'user/_logedin' %>
+          <% else %>
+            <%= erb :'user/_logedout'  %>
+          <% end %>
+
+      </header>
       <%= yield %>
     </body>
   </div>
