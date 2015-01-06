@@ -39,6 +39,9 @@ $(document).ready(function() {
   });
 
   $('#board').on('click', 'td', function(event){
+    if(window.hintsVisible){
+      return;
+    };
     $(event.target.firstChild).show();
     clickCount+=1;
     $('#numOpNum').text($('#numOpNum')[0].textContent+' '+game.board_seq[this.id]);
