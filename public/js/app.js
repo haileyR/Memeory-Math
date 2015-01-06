@@ -1,14 +1,9 @@
 $(document).ready(function() {
-  game = new Game();
-  game.board_seq.forEach(function(element, index){
-    $('#'+index).append("<span class=\"insideTd\">"+element+"</span>");
+  gameStart();
+
+  $('.container').on('click', '#newgame', function(){
+    gameStart();
   });
-
-  setTimeout(function(){ $("span").fadeOut(); }, 5000);
-  setTimeout(function(){ $('#question').text(game.question()+" = ").fadeIn(); }, 5500);
-
-  clickCount = 0;
-  clickedTds = [];
 
 
   $('header').on('submit', '#login', logInOutAjaxCall);
@@ -30,8 +25,6 @@ $(document).ready(function() {
       $('.userInfoCont').replaceWith(response);
     });
   };
-
-
 
 
   $('#hint').on('click', function(){
@@ -77,3 +70,38 @@ function resetQuestion(msg){
   clickCount=0;
   clickedTds = [];
 };
+
+
+function gameStart(){
+  $('#score').text('');
+  $('#question').text('');
+  game = new Game();
+  game.board_seq.forEach(function(element, index){
+    $('#'+index).text(element);
+  });
+  window.hintsVisible = true;
+  setTimeout(function(){
+    $("span").fadeOut();
+  }, 5000);
+  setTimeout(function(){
+    $('#question').text(game.question()+" = ").fadeIn();
+    window.hintsVisible = false;
+  }, 5500);
+
+  clickCount = 0;
+  clickedTds = [];
+};
+
+var showHints = function() {
+  window.hintsVisible = true;
+  $(".insideTd").show();
+  game.score -= 2;
+  $('#score').text('Score: '+game.score+'/'+game.outOf);
+
+  setTimeout(function(){
+    $(".insideTd").fadeOut();
+    window.hintsVisible = false;
+  }, 2000);
+}
+
+
